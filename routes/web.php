@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PostController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -16,17 +17,30 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
+
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->name('dashboard');
+
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+    Route::get('/posts', [PostController::class, 'index'])->name('posts_index');
 });
 
-Route::get('/blog', [BlogController::class, 'index'])->name('blog_posts');
+// Route untuk yang tidak login
+Route::get('/', [BlogController::class, 'index'])->name('blog_posts');
+Route::get('/{slug}', [BlogController::class, 'show'])->name('blog_post');
+Route::get('/user/{userId}', [BlogController::class, 'user'])->name('blog_user_posts');
+Route::get('/category/{slug}', [BlogController::class, 'category'])->name('blog_category_posts');
+Route::get('/tag/{slug}', [BlogController::class, 'tag'])->name('blog_tag_posts');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');

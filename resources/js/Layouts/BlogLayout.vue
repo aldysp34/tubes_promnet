@@ -12,7 +12,7 @@
                 </nav>
 
                 <div class="flex items-center text-lg no-underline text-white pr-6">
-                    <a class="" href="#">
+                    <a class="pl-6" href="#">
                         <i class="fab fa-facebook"></i>
                     </a>
                     <a class="pl-6" href="#">
@@ -32,11 +32,11 @@
         <!-- Text Header -->
         <header class="w-full container mx-auto">
             <div class="flex flex-col items-center py-12">
-                <a class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl" href="#">
-                    Minimal Blog
-                </a>
+                <inertia-link class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl" :href="'/'">
+                    Sixte Learning
+                </inertia-link>
                 <p class="text-lg text-gray-600">
-                    Lorem Ipsum Dolor Sit Amet
+                    Tubes Promnet ASW
                 </p>
             </div>
         </header>
@@ -92,6 +92,18 @@
                         Get to know us
                     </a>
                 </div>
+                <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+                    <p class="text-xl font-semibold pb-5">Meta</p>
+                    <ul class="list-disc pl-4" v-if="!$page.props.auth.user">
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/register">Register</a></li>
+                    </ul>
+                    <ul class="list-disc pl-4" v-if="$page.props.auth.user">
+                        <li>You are looged in as : {{user.email}}</li>
+                        <li><a href="/dashboard">Dashboard</a></li>
+                        <li><inertia-link method="post" href="/logout">Logout</inertia-link></li>
+                    </ul>
+                </div>
 
             </aside>
 
@@ -103,14 +115,32 @@
                 <div class="mt-16 border-t-2 border-gray-300 flex flex-col items-center">
                     <div class="sm:w-2/3 text-center py-6">
                         <p class="text-sm text-blue-900 font-bold mb-2">
-                            &copy; 2021 by Sixte_Team
+                            &copy; 2021 by Sixte
                         </p>
                         <p class="text-sm text-blue-700 font-bold mb-2">
                             Education Indonesia University 2019
                         </p>
+                        <!-- w-full sm:w-1/5 flex items-end mb-2 -->
+                        <div class="text-sm text-blue-700 font-bold mb-2 space-x-4">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href="https://instagram.com/aldysp34"><i class="fab fa-instagram"></i></a>
+                                <a href="https://github.com/aldysp34"><i class="fab fa-github"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
 </template>
+
+<script>
+    import { computed } from 'vue'
+    import { usePage } from '@inertiajs/inertia-vue3'
+
+    export default {
+        setup() {
+            const user = computed(() => usePage().props.value.auth.user)
+            return { user }
+        }
+    }
+</script>

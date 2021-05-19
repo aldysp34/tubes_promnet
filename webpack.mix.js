@@ -11,12 +11,19 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').vue()
+
+
+mix.js(['resources/js/app.js', 'public/fontawesome/js/all.js'], 'public/js').vue()
     .postCss('resources/css/app.css', 'public/css', [
         require('postcss-import'),
         require('tailwindcss'),
+        require('autoprefixer'),
     ])
     .webpackConfig(require('./webpack.config'));
+
+mix.sass('resources/scss/fontawesome.scss', 'public/css');
+
+mix.combine(['public/css/*.css', 'public/fontawesome/css/all.css'], 'public/css/all.css');
 
 if (mix.inProduction()) {
     mix.version();

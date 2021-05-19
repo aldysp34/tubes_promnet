@@ -11,7 +11,9 @@
         {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"> --}}
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="{{ mix('css/all.css') }}">
+        {{-- <link rel="stylesheet" href="{{asset('fontawesome/css/all.css')}}"> --}}
+        <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
         <style>
             @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
 
@@ -26,7 +28,8 @@
 
         <!-- Font Awesome -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
-
+        <script src="https://kit.fontawesome.com/529ebe6585.js" crossorigin="anonymous"></script>
+        {{-- <script defer src="{{asset('fontawesome/js/all.js')}}"></script> --}}
         <!-- Scripts -->
         @routes
         <script src="{{ mix('js/app.js') }}" defer></script>

@@ -12,8 +12,11 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="{{asset('fontawesome/css/all.css')}}">
+
 
         <!-- Scripts -->
+        <link rel="stylesheet" href="{{asset('fontawesome/css/all.css')}}">
         @routes
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
