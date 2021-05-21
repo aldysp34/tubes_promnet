@@ -5,10 +5,10 @@
             <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
 
                 <nav>
-                    <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
+                    <!-- <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
                         <li><a class="hover:text-gray-200 hover:underline px-4" href="#">Shop</a></li>
                         <li><a class="hover:text-gray-200 hover:underline px-4" href="#">About</a></li>
-                    </ul>
+                    </ul> -->
                 </nav>
 
                 <div class="flex items-center text-lg no-underline text-white pr-6">
@@ -33,11 +33,9 @@
         <header class="w-full container mx-auto">
             <div class="flex flex-col items-center py-12">
                 <inertia-link class="font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl" :href="'/'">
-                    Sixte Learning
+                    Sixtecode
                 </inertia-link>
-                <p class="text-lg text-gray-600">
-                    Tubes Promnet ASW
-                </p>
+                
             </div>
         </header>
 
@@ -54,12 +52,9 @@
             </div>
             <div class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
                 <div class="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Technology</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Automotive</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Finance</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Politics</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Culture</a>
-                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Sports</a>
+                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Home</a>
+                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Tutorial</a>
+                    <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Video</a>
                 </div>
             </div>
         </nav>
@@ -87,12 +82,12 @@
 
                 <div class="w-full bg-white shadow flex flex-col my-4 p-6">
                     <p class="text-xl font-semibold pb-5">About Us</p>
-                    <p class="pb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas mattis est eu odio sagittis tristique. Vestibulum ut finibus leo. In hac habitasse platea dictumst.</p>
-                    <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
+                    <p class="pb-2">Sixtecode adalah tempat belajar berbagai bahasa pemrograman berbasis website dan video. </p>
+                    <a href="https://www.instagram.com/23rdpine/" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
                         Get to know us
                     </a>
                 </div>
-                <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+                <!-- <div class="w-full bg-white shadow flex flex-col my-4 p-6">
                     <p class="text-xl font-semibold pb-5">Meta</p>
                     <ul class="list-disc pl-4" v-if="!$page.props.auth.user">
                         <li><a href="/login">Login</a></li>
@@ -103,7 +98,7 @@
                         <li><a href="/dashboard">Dashboard</a></li>
                         <li><inertia-link method="post" href="/logout">Logout</inertia-link></li>
                     </ul>
-                </div>
+                </div> -->
 
             </aside>
 

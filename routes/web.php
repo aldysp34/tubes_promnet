@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function(){
         return Inertia::render('Dashboard');
     })->name('dashboard');
     Route::get('/posts', [PostController::class, 'index'])->name('posts_index');
+    Route::get('/posts/create', [PostController::class, 'create'])->name('posts_form');
 });
 
 // Route untuk yang tidak login

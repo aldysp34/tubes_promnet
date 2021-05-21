@@ -13,18 +13,41 @@
                         <div class="mt-8 mb-8 text-2xl">
                             List Of Posts
                         </div>
+                         <!-- <div class="mt-8 mb-8">
+                             <inertia-link :href="route('posts_form')" class="bg-blue-500 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded my-3">Create New Post</inertia-link>
+                         </div>
+                         <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert" v-if="$page.success.message">
+                            <div class="flex">
+                                <div>
+                                    <p class="text-sm">{{ $page.success.message }}</p>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="mt-8 mb-8">
+                            <inertia-link :href="`/posts/create`" class="bg-blue-500 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded my-3">Create New Post</inertia-link>
+                        </div>
+                        <!-- <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert" v-if="$page.success.message">
+                            <div class="flex">
+                                <div>
+                                    <p class="text-sm">{{ $page.success.message }}</p>
+                                </div>
+                            </div>
+                        </div> -->
                         <table class="shadow-lg bg-white w-full">
                             <tr>
                                 <th class="bg-gray-200 border text-left px-8 py-4">Title</th>
                                 <th class="bg-gray-200 border text-left px-8 py-4">Author</th>
                                 <th class="bg-gray-200 border text-left px-8 py-4">Published at</th>
                             </tr>
-                            <tr v-for="post in posts" :key="post.id">
+                            <tr v-for="post in posts.data" :key="post.id">
                                 <td class="border px-8 py-4">{{post.title}}</td>
                                 <td class="border px-8 py-4">{{post.user.name}}</td>
                                 <td class="border px-8 py-4">{{post.published_at}}</td>
                             </tr>
                         </table>
+                        <div class="mt-8">
+                            <pagination :links="posts.links"></pagination>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,11 +57,13 @@
 
 <script>
     import AppLayout from '@/Layouts/AppLayout'
+    import Pagination from '../Shared/Pagination.vue'
 
     export default {
         props: ['posts'],
         components: {
-            AppLayout
+            AppLayout,
+            Pagination
         },
     }
 </script>
